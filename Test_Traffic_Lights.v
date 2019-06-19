@@ -1,20 +1,18 @@
-// test bench
-`timescale 1ns / 1ps
 module Test_Traffic_Lights;
 	
 	reg SA, SB; // Input, SA and SB are sensors
-	parameter CLK, RST;
+	reg CLK, RST;
 	
 	wire [1:0] PA, PB, A, B; // PA, PB are people's lights and A, B are car's lights
 	
-	Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
+	Traffic_Light TL (SA,SB,A,B,PA,PB,CLK,RST);
 
 	initial
 		begin
-			CLK = 1;
+		CLK = 0;
 			
-			repeat(100):
-			1# CLK = ~ CLK;
+		repeat(100)
+		#1 CLK = ~ CLK;
 		end
 	
 	initial
@@ -39,4 +37,3 @@ module Test_Traffic_Lights;
 		
 		end
 endmodule
-		
