@@ -29,6 +29,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = GREEN;
 					B = RED;
+					
+					PA = RED; // NEW
+					PB = GREEN; // NEW
+					
 					if(count < 4'd13)
 						count <= count + 4'd1;
 					else if (SB == 1'b1)
@@ -41,6 +45,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = YELLOW;
 					B = RED;
+					
+					PA = RED; // NEW
+					PB = BLINKING_RED; // NEW
+					
 					if(count < 4'd4)
 						count <= count +4'd1;
 					else
@@ -53,6 +61,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = RED;
 					B = RED;
+					
+					PA = RED; // NEW 
+					PB = BLINKING_RED; // NEW
+					
 					if(count < 4'd2)
 						count <= count + 4'd1;
 					else
@@ -65,6 +77,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = RED;
 					B = GREEN;
+					
+					PA = GREEN; // NEW
+					PB = RED; // NEW
+					
 					if(count < 4'd13)
 						count <= count + 4'd1;
 					else if (SA == 1'b1)
@@ -77,6 +93,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = RED;
 					B = YELLOW;
+					
+					PA = BLINKING_RED; // NEW
+					PB = RED; // NEW
+					
 					if(count < 4'd4)
 						count <= count +4'd1;
 					else
@@ -89,6 +109,9 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 				begin
 					A = RED;
 					B = RED;
+					
+					PA = BLINKING_RED; // NEW
+					PB = RED; // NEW
 					if(count < 4'd2)
 						count <= count + 4'd1;
 					else
