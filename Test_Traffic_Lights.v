@@ -1,4 +1,4 @@
-
+`timescale 1us / 1ns
 module Test_Traffic_Lights;
 	
 	reg SA, SB; // Input, SA and SB are sensors
