@@ -1,3 +1,4 @@
+
 module Test_Traffic_Lights;
 	
 	reg SA, SB; // Input, SA and SB are sensors
@@ -7,7 +8,7 @@ module Test_Traffic_Lights;
 	
 	Traffic_Light TL (SA,SB,A,B,PA,PB,CLK,RST);
 
-	initial
+	initial forever
 		begin
 		CLK = 0;
 			
@@ -18,6 +19,9 @@ module Test_Traffic_Lights;
 	initial
 		begin
 		RST = 1;
+		
+		#2
+		RST = 0;
 		
 		SA = 1'b1;
 		SB = 1'b1;

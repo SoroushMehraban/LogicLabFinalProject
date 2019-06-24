@@ -22,6 +22,10 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 		begin
 			state = S0;
 			count <= 4'd0;
+			A = GREEN;
+			B = RED;
+			PA = RED;
+			PB = GREEN;
 		end
 		else
 			case (state)
