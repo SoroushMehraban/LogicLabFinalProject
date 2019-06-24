@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1us / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Engineers: Soroush Mehraban & Amirhossein Amirfiroozkoohi
 // 
@@ -22,6 +22,11 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 		begin
 			state = S0;
 			count <= 4'd0;
+			A = GREEN;
+			B = RED;
+			PA = RED;
+			PB = GREEN;
+			count = 4'd0;
 		end
 		else
 			case (state)
@@ -33,7 +38,7 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					PA = RED; // NEW
 					PB = GREEN; // NEW
 					
-					if(count < 4'd13)
+					if(count < 4'd11)
 						count <= count + 4'd1;
 					else if (SB == 1'b1)
 					begin
@@ -49,7 +54,7 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					PA = RED; // NEW
 					PB = BLINKING_RED; // NEW
 					
-					if(count < 4'd4)
+					if(count < 4'd2)
 						count <= count +4'd1;
 					else
 						begin
@@ -63,9 +68,9 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					B = RED;
 					
 					PA = RED; // NEW 
-					PB = BLINKING_RED; // NEW
+					PB = RED; // NEW
 					
-					if(count < 4'd2)
+					if(count < 4'd0)
 						count <= count + 4'd1;
 					else
 						begin
@@ -81,7 +86,7 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					PA = GREEN; // NEW
 					PB = RED; // NEW
 					
-					if(count < 4'd13)
+					if(count < 4'd11)
 						count <= count + 4'd1;
 					else if (SA == 1'b1)
 						begin
@@ -97,7 +102,7 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					PA = BLINKING_RED; // NEW
 					PB = RED; // NEW
 					
-					if(count < 4'd4)
+					if(count < 4'd2)
 						count <= count +4'd1;
 					else
 						begin
@@ -110,9 +115,9 @@ module Traffic_Light(SA,SB,A,B,PA,PB,CLK,RST);
 					A = RED;
 					B = RED;
 					
-					PA = BLINKING_RED; // NEW
+					PA = RED; // NEW
 					PB = RED; // NEW
-					if(count < 4'd2)
+					if(count < 4'd0)
 						count <= count + 4'd1;
 					else
 						begin
